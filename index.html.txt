@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For Archita ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            overflow: hidden;
+            color: white;
+        }
+
+        h1 {
+            margin-top: 100px;
+            font-size: 42px;
+        }
+
+        p {
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 20px;
+        }
+
+        #yes {
+            background: white;
+            color: #ff4d6d;
+            font-weight: bold;
+        }
+
+        #no {
+            background: #ff4d6d;
+            color: white;
+            position: absolute;
+        }
+
+        /* Falling Hearts */
+        .heart {
+            position: fixed;
+            top: -10px;
+            font-size: 20px;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Archita ❤️ Pranesh</h1>
+
+    <p>Archita, you are the calm to my chaos and the smile to my every day ✨</p>
+    <p>When you laugh, the whole world feels lighter 🌸</p>
+    <p>Every moment with you feels like my favorite song on repeat 🎶</p>
+    <p>I don’t need a perfect world… I just need you in mine 💕</p>
+
+    <h2>Press this if you love me 💖</h2>
+
+    <button id="yes" onclick="yesClicked()">YES ❤️</button>
+    <button id="no">NO 😜</button>
+
+    <!-- Background Music -->
+    <audio id="music" autoplay loop>
+        <!-- Replace this file with your downloaded mp3 -->
+        <source src="cupid.mp3" type="audio/mpeg">
+    </audio>
+
+<script>
+    const noBtn = document.getElementById("no");
+
+    // Chaotic moving NO button
+    function moveButtonWeird() {
+        const maxX = window.innerWidth - 120;
+        const maxY = window.innerHeight - 60;
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+
+        noBtn.style.transform = `rotate(${Math.random() * 360}deg)`;
+    }
+
+    noBtn.addEventListener("mouseover", moveButtonWeird);
+    noBtn.addEventListener("click", moveButtonWeird);
+
+    function yesClicked() {
+        alert("I knew ittttt 😌❤️ I love you more Archita 💕");
+    }
+
+    // Falling hearts animation
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    setInterval(createHeart, 250);
+</script>
+
+</body>
+</html>
